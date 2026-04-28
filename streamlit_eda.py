@@ -1,4 +1,3 @@
-from database_connection import get_connection
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -13,25 +12,14 @@ st.title("IPL 2026 — Data Analytics Dashboard")
 
 @st.cache_data
 def load_data():
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT pos, team, grp, pld, w, l, pts, nrr, win_pct, nrr_tier, form_label, qualification FROM gold.team_performance")
-    teams = pd.DataFrame(cursor.fetchall(),
-        columns=['pos','team','grp','pld','w','l','pts','nrr','win_pct','nrr_tier','form_label','qualification'])
-
-    cursor.execute("SELECT player, team, stat_type, stat_value, rank_pos, performance_label FROM gold.player_leaderboard")
-    players = pd.DataFrame(cursor.fetchall(),
-        columns=['player','team','stat_type','stat_value','rank_pos','performance_label'])
-
-    conn.close()
+    teams = pd.read_csv("team_performance.csv")
+    players = pd.read_csv("player_leaderboard.csv")
     return teams, players
 
 teams, players = load_data()
 batters = players[players['stat_type'] == 'Batting'].reset_index(drop=True)
 bowlers = players[players['stat_type'] == 'Bowling'].reset_index(drop=True)
 
-# ── SECTION 1: TABLES ────────────────────────────────────────────────────────
 st.header("1. Data Tables")
 c1, c2 = st.columns(2)
 
@@ -49,7 +37,6 @@ with c2:
                                   'stat_value':'Value','performance_label':'Label'}),
                  use_container_width=True, hide_index=True)
 
-# ── SECTION 2: CHARTS ────────────────────────────────────────────────────────
 st.header("2. Visualisations")
 c3, c4, c5 = st.columns(3)
 
@@ -92,7 +79,6 @@ with c5:
     st.pyplot(fig)
     plt.close()
 
-# ── SECTION 3: PREDICTIONS ───────────────────────────────────────────────────
 st.header("3. Predictions & Insights")
 p1, p2, p3 = st.columns(3)
 

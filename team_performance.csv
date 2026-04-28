@@ -1,0 +1,11 @@
+pos,team,grp,pld,w,l,nr,pts,nrr,win_pct,qualification,nrr_tier,form_label
+1,Punjab Kings,A,7,6,0,1,13,1.333,85.71,Qualifier 1,Strong,In Form
+2,Royal Challengers Bengaluru,A,8,6,2,0,12,1.919,75.0,Eliminated,Strong,In Form
+3,Sunrisers Hyderabad,B,8,5,3,0,10,0.815,62.5,Eliminator,Strong,Average
+4,Rajasthon Royals,A,8,5,3,0,10,0.602,62.5,Eliminated,Strong,Average
+5,Gujarat Titans,B,8,4,4,0,8,-0.475,50.0,Eliminated,Weak,Average
+6,Chennai Super Kings,A,8,3,5,0,6,-0.121,37.5,Eliminated,Weak,Struggling
+7,Delhi Capitals,B,8,3,5,0,6,-1.06,37.5,Eliminated,Poor,Struggling
+8,Kolkata Knight Riders,A,8,2,5,1,5,-0.751,25.0,Eliminated,Poor,Struggling
+9,Mumbai Indians,B,7,2,5,0,4,-0.736,28.57,Eliminated,Poor,Struggling
+10,Lucknow Super Giants,B,8,2,6,0,4,-1.106,25.0,Eliminated,Poor,Struggling
